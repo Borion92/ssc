@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Excel files (examples - remove if you want to track them)
+*.xlsx
+*.xls
+
+# Temporary files
+nul
