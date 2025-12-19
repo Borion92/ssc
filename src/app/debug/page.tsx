@@ -16,14 +16,14 @@ export default function DebugPage() {
         setLoading(true)
 
         // Fetch all data
-        const [citiesRes, salariesRes, resultsRes] = await Promise.all([
+        const [citiesRes, salariesRes] = await Promise.all([
           fetch('/api/results?city=烟台').then(r => r.json()),
           fetch('/api/results').then(r => r.json())
         ])
 
         // Need to create separate API endpoints to get cities and salaries
         // For now, let's use the existing API to get some info
-        setResults(resultsRes.data || [])
+        setResults(salariesRes.data || [])
 
         // Try to get info by triggering calculation
         const calcRes = await fetch('/api/calculate', {

@@ -110,13 +110,13 @@ export function parseSalariesExcel(buffer: ArrayBuffer) {
       } else if (monthValue > 40000) {
         // Excel stores dates as numbers (days since 1900)
         const date = new Date((monthValue - 25569) * 86400 * 1000)
-        monthStr = date.getFullYear() * 100 + (date.getMonth() + 1)
+        monthStr = String(date.getFullYear() * 100 + (date.getMonth() + 1))
       } else {
         monthStr = String(monthValue)
       }
     } else if (monthValue instanceof Date) {
       // If it's a Date object, format as YYYYMM
-      monthStr = monthValue.getFullYear() * 100 + (monthValue.getMonth() + 1)
+      monthStr = String(monthValue.getFullYear() * 100 + (monthValue.getMonth() + 1))
     } else {
       // Try to parse as string
       monthStr = String(monthValue).trim()
