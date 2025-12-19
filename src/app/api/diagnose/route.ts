@@ -44,11 +44,7 @@ export async function GET() {
       }
     }
 
-    // 3. 检查表是否存在
-    const { data: tableData, error: tableError } = await supabase
-      .rpc('get_table_info', { table_name: 'cities' })
-      .then(() => ({ exists: true }))
-      .catch(() => ({ exists: false }))
+    // 3. 检查表是否存在 - 直接查询表来检查
 
     // 直接查询表来检查是否存在
     try {
